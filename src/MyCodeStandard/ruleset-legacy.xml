@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<ruleset name="My Code Standard"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.github.io/pmd-6.0.x.xsd">
+
+    <description>A custom ruleset/coding standard for legacy project</description>
+
+    <!-- Pug prone patterns-->
+    <rule ref="Generic.PHP.DeprecatedFunctions" />
+    <!-- flag to use of specific PHP functions that you want to forbid -->
+    <rule ref="Generic.PHP.ForbiddenFunctions"> 
+        <properties>
+            <property name="forbiddenFunctions" type="array">
+                <element key="eval">eval()</element>
+                <element key="exec">exec()</element>
+                <element key="shell_exec">shell_exec()</element>
+                <element key="passthru">passthru()</element>
+                <element key="system">system()</element>
+                <element key="proc_open">proc_open()</element>
+            </property>
+        </properties>
+    </rule>
+    <!-- It checks that all PHP keywords are written in lowercase -->
+    <rule ref="Generic.PHP.LowerCaseKeyword" />
+    <!-- It warns about any use of eval -->
+    <rule ref="Squiz.PHP.Eval" />
+    <!-- Disallows BOMs before opening tag -->
+    <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag" />
+    <!-- prevents lazy @ usage everywhere -->
+    <rule ref="Generic.PHP.NoSilencedErrors" />
+</ruleset>

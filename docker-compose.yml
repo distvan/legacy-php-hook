@@ -1,0 +1,14 @@
+# Compose specification
+
+x-php-service: &php-service
+  build:
+    context: ./docker/php
+  volumes:
+    - .:/var/www/html
+
+services:
+  php:
+    <<: *php-service
+    container_name: php83
+networks:
+  app-network:
